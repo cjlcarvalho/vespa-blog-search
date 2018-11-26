@@ -5,7 +5,6 @@ File responsible to define the services that make up our application.
 It includes which services to run and how many nodes are available per service.
 
 -->
-
 <?xml version='1.0' encoding='UTF-8'?>
 <services version="1.0">
 

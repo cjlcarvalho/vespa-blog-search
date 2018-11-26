@@ -5,7 +5,6 @@ This file contains a list of all the hosts/nodes that are part of the applicatio
 including an alias for each of them.
 
 -->
-
 <?xml version="1.0" encoding="utf-8" ?>
 <hosts>
   <host name="localhost">
