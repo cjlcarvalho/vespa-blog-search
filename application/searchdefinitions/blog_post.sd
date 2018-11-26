@@ -1,0 +1,67 @@
+<!--
+
+* blog_post.sd *
+This file contains a search definition for a document of type blog_post.
+It represents a definition of a entity for our application.
+
+This document will be wrapped inside of another element called `search`.
+
+Each field contains a property called indexing, which configures the indexing pipeline for it
+(i.e. it defines how Vespa will deal with the input during indexing).
+
+Each part of the indexing pipeline is separated by a `|` character
+
+index: Create a search index for this field
+attribute: Store this field in memory as an attribute (commonly used for sorting, searching and grouping)
+summary: Let this field be part of the document summary in the result set
+
+-->
+
+search blog_post {
+    document blog_post {
+        field date_gmt type string {
+            indexing: summary
+        }
+        field language type string {
+            indexing: summary
+        }
+        field author type string {
+            indexing: summary
+        }
+        field url type string {
+            indexing: summary
+        }
+        field title type string {
+            indexing: summary | index
+        }
+        field blog type string {
+            indexing: summary
+        }
+        field post_id type string {
+            indexing: summary
+        }
+        field tags type array<string> {
+            indexing: summary
+        }
+        field blogname type string {
+            indexing: summary
+        }
+        field content type string {
+            indexing: summary | index
+        }
+        field categories type array<string> {
+            indexing: summary
+        }
+        field date type int {
+            indexing: summary | attribute
+        }
+    }
+    fieldset default {
+        fields: title, content
+    }
+    rank-profile post inherits default {
+        first-phase {
+            expression:nativeRank(title, content)
+        }
+    }
+}
