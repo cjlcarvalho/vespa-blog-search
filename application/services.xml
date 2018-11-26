@@ -1,31 +1,25 @@
-<!--
-
-* services.xml *
-File responsible to define the services that make up our application.
-It includes which services to run and how many nodes are available per service.
-
--->
 <?xml version='1.0' encoding='UTF-8'?>
-<services version="1.0">
+<!-- Copyright 2017 Yahoo Holdings. Licensed under the terms of the Apache 2.0 license. See LICENSE in the project root. -->
+<services version='1.0'>
 
-  <container id="default" version="1.0">
-    <search></search>
-    <document-api></document-api>
+  <container id='default' version='1.0'>
+    <search/>
+    <document-api/>
     <nodes>
-      <node hostalias="node1"></node>
+      <node hostalias='node1'/>
     </nodes>
   </container>
 
-  <content id="blog_post" version="1.0">
+  <content id='blog_post' version='1.0'>
     <redundancy>1</redundancy>
     <search>
       <visibility-delay>1.0</visibility-delay>
     </search>
     <documents>
-      <document mode="index" type="blog_post"></document>
+      <document mode='index' type='blog_post'/>
     </documents>
     <nodes>
-      <node hostalias="node1" distribution-key="0"></node>
+      <node hostalias='node1' distribution-key="0"/>
     </nodes>
     <engine>
       <proton>
